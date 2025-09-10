@@ -1,0 +1,41 @@
+{
+	"name": "PL_Webactivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"headers": {
+						"Content-Type": {
+							"value": "\"application/json\"",
+							"type": "Expression"
+						}
+					},
+					"url": "https://prod-31.southindia.logic.azure.com:443/workflows/bced34b1b2084d32ac94d8957dc7ff86/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=dEW1aqqDQbQqez4XbISWBwhQTqMA6DP5cm63hC36NK0",
+					"body": {
+						"to": "aksharasoftwarebnglr@gmail.com",
+						"subject": "ADF Pipeline Completed",
+						"body": "Your pipeline finished successfully."
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "Arjun"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-18T19:13:39Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

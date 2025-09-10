@@ -1,0 +1,82 @@
+{
+	"name": "pipeline3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Switch1",
+				"type": "Switch",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"on": {
+						"value": "@pipeline().parameters.Gender",
+						"type": "Expression"
+					},
+					"cases": [
+						{
+							"value": "M",
+							"activities": [
+								{
+									"name": "Set variable1",
+									"type": "SetVariable",
+									"dependsOn": [],
+									"policy": {
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"variableName": "Message",
+										"value": {
+											"value": "Good boy",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						},
+						{
+							"value": "F",
+							"activities": [
+								{
+									"name": "Set variable2",
+									"type": "SetVariable",
+									"dependsOn": [],
+									"policy": {
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"variableName": "Message",
+										"value": {
+											"value": "Good Girl",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"Gender": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Message": {
+				"type": "String",
+				"defaultValue": "M"
+			}
+		},
+		"folder": {
+			"name": "July_Batch"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-20T01:59:27Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

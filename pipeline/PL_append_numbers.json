@@ -1,0 +1,103 @@
+{
+	"name": "PL_append_numbers",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append_1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Numbers",
+					"value": {
+						"value": "1",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Append_2",
+				"type": "AppendVariable",
+				"dependsOn": [
+					{
+						"activity": "Append_1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Numbers",
+					"value": {
+						"value": "2",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Append_3",
+				"type": "AppendVariable",
+				"dependsOn": [
+					{
+						"activity": "Append_2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Numbers",
+					"value": {
+						"value": "3",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Show_Final_Numbers",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Append_3",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "FinaleNumbers",
+					"value": {
+						"value": "@variables('Numbers')",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"Numbers": {
+				"type": "Array",
+				"defaultValue": []
+			},
+			"FinaleNumbers": {
+				"type": "Array"
+			},
+			"S_Numbers": {
+				"type": "Array",
+				"defaultValue": []
+			}
+		},
+		"folder": {
+			"name": "Arjun"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-17T17:09:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

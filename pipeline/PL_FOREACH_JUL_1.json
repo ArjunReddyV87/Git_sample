@@ -1,0 +1,77 @@
+{
+	"name": "PL_FOREACH_JUL_1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Numbers",
+					"value": {
+						"value": "@createArray(1,2,3,4,5)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Foreach_1to5",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Numbers')",
+						"type": "Expression"
+					},
+					"isSequential": false,
+					"activities": [
+						{
+							"name": "Set variable2",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Number_Value",
+								"value": {
+									"value": "@item()",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Numbers": {
+				"type": "Array"
+			},
+			"Number_Value": {
+				"type": "Integer"
+			}
+		},
+		"folder": {
+			"name": "July_Batch"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-19T02:09:41Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

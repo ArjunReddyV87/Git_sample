@@ -1,0 +1,29 @@
+{
+	"name": "PL_Fail",
+	"properties": {
+		"activities": [
+			{
+				"name": "Fail1",
+				"type": "Fail",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"message": {
+						"value": "'Hi all file not found in given path'",
+						"type": "Expression"
+					},
+					"errorCode": {
+						"value": "FileNotFound",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "July_Batch"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-18T02:36:48Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

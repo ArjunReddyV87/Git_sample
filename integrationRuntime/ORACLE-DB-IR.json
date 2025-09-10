@@ -1,0 +1,6 @@
+{
+	"name": "ORACLE-DB-IR",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

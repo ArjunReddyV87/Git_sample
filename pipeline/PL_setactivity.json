@@ -1,0 +1,60 @@
+{
+	"name": "PL_setactivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "S_Numbers",
+					"value": {
+						"value": "@array(createArray(1,2,3))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1_copy1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "S_Numbers",
+					"value": {
+						"value": "@array(createArray(4,5,6))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"S_Numbers": {
+				"type": "Array",
+				"defaultValue": []
+			}
+		},
+		"folder": {
+			"name": "Arjun"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-17T17:09:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

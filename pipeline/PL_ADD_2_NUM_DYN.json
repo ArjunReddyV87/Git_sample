@@ -1,0 +1,48 @@
+{
+	"name": "PL_ADD_2_NUM_DYN",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Message",
+						"value": "This is to show parameters and variabale concept"
+					}
+				],
+				"typeProperties": {
+					"variableName": "Total",
+					"value": {
+						"value": "@add(pipeline().parameters.Num1,pipeline().parameters.Num2)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"Num1": {
+				"type": "int"
+			},
+			"Num2": {
+				"type": "int"
+			}
+		},
+		"variables": {
+			"Total": {
+				"type": "Integer"
+			}
+		},
+		"folder": {
+			"name": "July_Batch"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-17T02:34:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

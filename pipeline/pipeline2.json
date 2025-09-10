@@ -1,0 +1,47 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Validation1",
+				"type": "Validation",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DSJulybatchsrc",
+						"type": "DatasetReference"
+					},
+					"timeout": "0.00:02:00",
+					"sleep": 1
+				}
+			},
+			{
+				"name": "Fail1",
+				"type": "Fail",
+				"dependsOn": [
+					{
+						"activity": "Validation1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"message": {
+						"value": "'file not found'",
+						"type": "Expression"
+					},
+					"errorCode": "File_notfound"
+				}
+			}
+		],
+		"folder": {
+			"name": "Arjun"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-17T18:34:21Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,94 @@
+{
+	"name": "PL_FOREACH_1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Init_Numbers",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Numbers",
+					"value": {
+						"value": "@createArray(1,2,3,4,5,6)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "FE_Numbers",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Init_Numbers",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@variables('Numbers')",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"dependsOn": [
+								{
+									"activity": "Wait1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "AllNumbers",
+								"value": {
+									"value": "@item()",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"waitTimeInSeconds": 5
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"Numbers": {
+				"type": "Array",
+				"defaultValue": []
+			},
+			"AllNumbers": {
+				"type": "Integer"
+			}
+		},
+		"folder": {
+			"name": "Arjun"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-19T02:53:20Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

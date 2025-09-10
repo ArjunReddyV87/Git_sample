@@ -1,0 +1,17 @@
+{
+	"name": "DS_Generic_SQLTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_July2025ss2_db",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "",
+			"table": ""
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

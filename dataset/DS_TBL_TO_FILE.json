@@ -1,0 +1,45 @@
+{
+	"name": "DS_TBL_TO_FILE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "aksadejulstor_sink_dl_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "EMP_JULY25.CSV",
+				"fileSystem": "bronze"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "claim_id",
+				"type": "String"
+			},
+			{
+				"name": "policy_id",
+				"type": "String"
+			},
+			{
+				"name": "claim_date",
+				"type": "String"
+			},
+			{
+				"name": "claim_amount",
+				"type": "String"
+			},
+			{
+				"name": "claim_status",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

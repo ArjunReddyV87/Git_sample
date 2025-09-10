@@ -1,0 +1,35 @@
+{
+	"name": "PL_ADD_2_NUM_STAT",
+	"properties": {
+		"activities": [
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Total",
+					"value": {
+						"value": "@add(5,7)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"Total": {
+				"type": "Integer"
+			}
+		},
+		"folder": {
+			"name": "July_Batch"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-17T02:34:11Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

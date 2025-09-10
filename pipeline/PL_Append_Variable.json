@@ -1,0 +1,28 @@
+{
+	"name": "PL_Append_Variable",
+	"properties": {
+		"activities": [
+			{
+				"name": "Append variable1",
+				"type": "AppendVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Name",
+					"value": "['reddy']"
+				}
+			}
+		],
+		"variables": {
+			"Name": {
+				"type": "Array"
+			}
+		},
+		"folder": {
+			"name": "July_Batch"
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-08-17T03:02:58Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

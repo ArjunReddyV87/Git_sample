@@ -1,0 +1,25 @@
+{
+	"name": "aksjuldevadf",
+	"properties": {
+		"globalParameters": {
+			"Input_Path": {
+				"type": "string",
+				"value": "/project/input/data/"
+			},
+			"output_path": {
+				"type": "string",
+				"value": "/project/output/path/"
+			},
+			"Environment": {
+				"type": "string",
+				"value": "Dev"
+			}
+		}
+	},
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a61ab7f7-8a66-46c2-a3f4-a152525c03fa",
+		"tenantId": "0e6213ed-bc70-43d2-a268-a08884fb48b5"
+	}
+}
