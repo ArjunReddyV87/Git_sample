@@ -1,0 +1,23 @@
+{
+	"name": "Oracle_LS",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "Oracle",
+		"version": "2.0",
+		"typeProperties": {
+			"server": "AR",
+			"authenticationType": "Basic",
+			"username": "ade2",
+			"encryptionClient": "accepted",
+			"encryptionTypesClient": "(AES128, AES192, AES256, 3DES112, 3DES168)",
+			"cryptoChecksumClient": "accepted",
+			"cryptoChecksumTypesClient": "(SHA1, SHA256, SHA384, SHA512)",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI5Yjc5OWI5Mi1lZTA2LTQ4NDktYmIyYy04MWZlYWZhZDQwOGQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SQL-SERVER-IR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
