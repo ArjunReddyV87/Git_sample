@@ -3,6 +3,16 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "p_copy_sales_to_adls",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"WindowStart": "@trigger().outputs.windowStartTime",
+				"WindowEnd": "@trigger().outputs.windowEndTime"
+			}
+		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",
