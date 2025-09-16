@@ -1,10 +1,6 @@
 {
 	"name": "OracleTable1",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "LS_ARJUN_ONPREM_ORC",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "OracleTable",
 		"schema": [],
