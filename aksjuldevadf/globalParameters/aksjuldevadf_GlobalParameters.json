@@ -1,0 +1,14 @@
+{
+	"Input_Path": {
+		"type": "string",
+		"value": "/project/input/data/"
+	},
+	"output_path": {
+		"type": "string",
+		"value": "/project/output/path/"
+	},
+	"Environment": {
+		"type": "string",
+		"value": "Dev"
+	}
+}

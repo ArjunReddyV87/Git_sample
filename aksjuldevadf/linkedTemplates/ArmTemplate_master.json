@@ -1,0 +1,262 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "aksjuldevadf"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureSqlDatabase1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
+		},
+		"DL_Src_Files_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'DL_Src_Files'"
+		},
+		"LS_July2025ss2_db_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_July2025ss2_db'"
+		},
+		"LS_Silver_Storage_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Silver_Storage'"
+		},
+		"LS_Sqlserver_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_Sqlserver'"
+		},
+		"akeadejulstor_dl_ls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'akeadejulstor_dl_ls'"
+		},
+		"aksadejulstor_sink_dl_ls_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'aksadejulstor_sink_dl_ls'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://akeadejulstor.dfs.core.windows.net/"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aksjul2025ss2.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "july2025_batch"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "aksjul2025ss2_admin"
+		},
+		"DL_Src_Files_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://akeadejulstor.dfs.core.windows.net/"
+		},
+		"LS_July2025ss2_db_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "aksjul2025ss2.database.windows.net"
+		},
+		"LS_July2025ss2_db_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "aksjul2025ss2_db"
+		},
+		"LS_July2025ss2_db_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "aksjul2025ss2_admin"
+		},
+		"LS_Silver_Storage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://akeadejulstor.dfs.core.windows.net/"
+		},
+		"akeadejulstor_dl_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://akeadejulstor.dfs.core.windows.net/"
+		},
+		"aksadejulstor_sink_dl_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://aksadejulstorsink.dfs.core.windows.net/"
+		},
+		"Event_Trigger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/1ced0b0b-c303-44cb-9ebf-6b85cd146626/resourceGroups/aksade_jul_rg2/providers/Microsoft.Storage/storageAccounts/akeadejulstor"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "aksjuldevadf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureSqlDatabase1_password": {
+						"value": "[parameters('AzureSqlDatabase1_password')]"
+					},
+					"DL_Src_Files_accountKey": {
+						"value": "[parameters('DL_Src_Files_accountKey')]"
+					},
+					"LS_July2025ss2_db_password": {
+						"value": "[parameters('LS_July2025ss2_db_password')]"
+					},
+					"LS_Silver_Storage_accountKey": {
+						"value": "[parameters('LS_Silver_Storage_accountKey')]"
+					},
+					"akeadejulstor_dl_ls_accountKey": {
+						"value": "[parameters('akeadejulstor_dl_ls_accountKey')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"DL_Src_Files_properties_typeProperties_url": {
+						"value": "[parameters('DL_Src_Files_properties_typeProperties_url')]"
+					},
+					"LS_July2025ss2_db_properties_typeProperties_server": {
+						"value": "[parameters('LS_July2025ss2_db_properties_typeProperties_server')]"
+					},
+					"LS_July2025ss2_db_properties_typeProperties_database": {
+						"value": "[parameters('LS_July2025ss2_db_properties_typeProperties_database')]"
+					},
+					"LS_July2025ss2_db_properties_typeProperties_userName": {
+						"value": "[parameters('LS_July2025ss2_db_properties_typeProperties_userName')]"
+					},
+					"LS_Silver_Storage_properties_typeProperties_url": {
+						"value": "[parameters('LS_Silver_Storage_properties_typeProperties_url')]"
+					},
+					"akeadejulstor_dl_ls_properties_typeProperties_url": {
+						"value": "[parameters('akeadejulstor_dl_ls_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "aksjuldevadf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"aksadejulstor_sink_dl_ls_accountKey": {
+						"value": "[parameters('aksadejulstor_sink_dl_ls_accountKey')]"
+					},
+					"aksadejulstor_sink_dl_ls_properties_typeProperties_url": {
+						"value": "[parameters('aksadejulstor_sink_dl_ls_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'aksjuldevadf_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "aksjuldevadf_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_Sqlserver_connectionString": {
+						"value": "[parameters('LS_Sqlserver_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'aksjuldevadf_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "aksjuldevadf_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'aksjuldevadf_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "aksjuldevadf_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Event_Trigger_properties_typeProperties_scope": {
+						"value": "[parameters('Event_Trigger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'aksjuldevadf_ArmTemplate_3')]"
+			]
+		}
+	]
+}
