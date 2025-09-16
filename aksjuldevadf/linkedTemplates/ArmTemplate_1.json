@@ -650,6 +650,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().filename",
+							"type": "Expression"
+						},
 						"fileSystem": "twsilver"
 					},
 					"columnDelimiter": ",",
