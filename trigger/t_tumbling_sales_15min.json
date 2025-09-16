@@ -2,7 +2,7 @@
 	"name": "t_tumbling_sales_15min",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "p_copy_sales_to_adls",
