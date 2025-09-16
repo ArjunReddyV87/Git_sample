@@ -86,6 +86,14 @@
 		"Event_Trigger_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/1ced0b0b-c303-44cb-9ebf-6b85cd146626/resourceGroups/aksade_jul_rg2/providers/Microsoft.Storage/storageAccounts/akeadejulstor"
+		},
+		"t_tumbling_sales_15min_properties_pipeline_parameters_WindowStart": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"t_tumbling_sales_15min_properties_pipeline_parameters_WindowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
 		}
 	},
 	"variables": {
@@ -6455,7 +6463,17 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "p_copy_sales_to_adls",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"WindowStart": "[parameters('t_tumbling_sales_15min_properties_pipeline_parameters_WindowStart')]",
+						"WindowEnd": "[parameters('t_tumbling_sales_15min_properties_pipeline_parameters_WindowEnd')]"
+					}
+				},
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
 					"frequency": "Minute",
@@ -6469,7 +6487,9 @@
 					"dependsOn": []
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/p_copy_sales_to_adls')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/ORACLE-DB-IR')]",

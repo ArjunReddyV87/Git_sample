@@ -7,9 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "aksjuldevadf"
 		},
-		"Event_Trigger_properties_typeProperties_scope": {
+		"t_tumbling_sales_15min_properties_pipeline_parameters_WindowStart": {
 			"type": "string",
-			"defaultValue": "/subscriptions/1ced0b0b-c303-44cb-9ebf-6b85cd146626/resourceGroups/aksade_jul_rg2/providers/Microsoft.Storage/storageAccounts/akeadejulstor"
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"t_tumbling_sales_15min_properties_pipeline_parameters_WindowEnd": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
 		}
 	},
 	"variables": {
@@ -17,30 +21,33 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/Event_Trigger')]",
+			"name": "[concat(parameters('factoryName'), '/t_tumbling_sales_15min')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "pipeline4",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
+				"pipeline": {
+					"pipelineReference": {
+						"referenceName": "p_copy_sales_to_adls",
+						"type": "PipelineReference"
+					},
+					"parameters": {
+						"WindowStart": "[parameters('t_tumbling_sales_15min_properties_pipeline_parameters_WindowStart')]",
+						"WindowEnd": "[parameters('t_tumbling_sales_15min_properties_pipeline_parameters_WindowEnd')]"
 					}
-				],
-				"type": "BlobEventsTrigger",
+				},
+				"type": "TumblingWindowTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/silver/blobs/csv",
-					"blobPathEndsWith": ".csv",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('Event_Trigger_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
+					"frequency": "Minute",
+					"interval": 15,
+					"startTime": "2025-09-16T00:00:00Z",
+					"delay": "00:00:00",
+					"maxConcurrency": 1,
+					"retryPolicy": {
+						"intervalInSeconds": 60
+					},
+					"dependsOn": []
 				}
 			},
 			"dependsOn": []
