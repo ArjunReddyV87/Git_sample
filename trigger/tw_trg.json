@@ -2,12 +2,18 @@
 	"name": "tw_trg",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "PL_TWT_2",
+				"type": "PipelineReference"
+			}
+		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
-			"frequency": "Hour",
-			"interval": 1,
-			"startTime": "2025-09-15T00:00:00Z",
+			"frequency": "Minute",
+			"interval": 15,
+			"startTime": "2025-09-16T00:00:00Z",
 			"delay": "00:00:00",
 			"maxConcurrency": 50,
 			"retryPolicy": {
