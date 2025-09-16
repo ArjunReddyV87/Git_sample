@@ -55,14 +55,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"WindowStart": {
-				"type": "string"
-			},
-			"WindowEnd": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "Arjun"
 		},
