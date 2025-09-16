@@ -1,0 +1,26 @@
+{
+	"name": "ds_tw_stor",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "aksadejulstor_sink_dl_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(\n  'sales_',\n  formatDateTime(utcnow(), 'yyyyMMddHHmmss'),\n  '.csv'\n)",
+					"type": "Expression"
+				},
+				"fileSystem": "twsilver"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
