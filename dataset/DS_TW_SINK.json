@@ -1,0 +1,42 @@
+{
+	"name": "DS_TW_SINK",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "aksadejulstor_sink_dl_ls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"year": {
+				"type": "string"
+			},
+			"month": {
+				"type": "string"
+			},
+			"day": {
+				"type": "string"
+			},
+			"hour": {
+				"type": "string"
+			},
+			"minute": {
+				"type": "string"
+			},
+			"filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "twsilver"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
