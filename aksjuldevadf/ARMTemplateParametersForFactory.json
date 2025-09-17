@@ -64,6 +64,12 @@
 		},
 		"Event_Trigger_properties_typeProperties_scope": {
 			"value": "/subscriptions/1ced0b0b-c303-44cb-9ebf-6b85cd146626/resourceGroups/aksade_jul_rg2/providers/Microsoft.Storage/storageAccounts/akeadejulstor"
+		},
+		"t_tumbling_sales_15min_jul_properties_pipeline_parameters_WindowStart": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"t_tumbling_sales_15min_jul_properties_pipeline_parameters_WindowEnd": {
+			"value": "@trigger().outputs.windowEndTime"
 		}
 	}
 }
