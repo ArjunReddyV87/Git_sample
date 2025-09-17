@@ -3,16 +3,6 @@
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Stopped",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "PL_TWT_JULYbatch_1",
-				"type": "PipelineReference"
-			},
-			"parameters": {
-				"WindowStart": "@trigger().outputs.windowStartTime",
-				"WindowEnd": "@trigger().outputs.windowEndTime"
-			}
-		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",
