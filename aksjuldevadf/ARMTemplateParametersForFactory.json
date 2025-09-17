@@ -70,6 +70,12 @@
 		},
 		"t_tumbling_sales_15min_jul_properties_pipeline_parameters_WindowEnd": {
 			"value": "@trigger().outputs.windowEndTime"
+		},
+		"t_tumbling_sales_15min_jul2_properties_pipeline_parameters_WindowStart": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"t_tumbling_sales_15min_jul2_properties_pipeline_parameters_WindowEnd": {
+			"value": "@trigger().outputs.windowEndTime"
 		}
 	}
 }
