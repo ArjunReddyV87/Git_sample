@@ -105,6 +105,26 @@
 									"type": "Expression"
 								}
 							}
+						},
+						{
+							"name": "Fail1",
+							"type": "Fail",
+							"dependsOn": [
+								{
+									"activity": "Set variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"message": {
+									"value": "@concat(\n   pipeline().parameters.FileName,\n   ' earlier col cnt ',\n   string(activity('get_col_cnt_from_cont_tbl').output.firstRow.col_cnt),\n   ' new file count ',\n   string(activity('Get Metadata1').output.columnCount),\n   ' both are not matching'\n)",
+									"type": "Expression"
+								},
+								"errorCode": "COL_MISMATCH"
+							}
 						}
 					]
 				}
