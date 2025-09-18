@@ -5,7 +5,14 @@
 			{
 				"name": "Data flow1",
 				"type": "ExecuteDataFlow",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -25,8 +32,35 @@
 					},
 					"traceLevel": "Fine"
 				}
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL_Schema_Change_Chk",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"FileName": {
+							"value": "@pipeline().parameters.FileName",
+							"type": "Expression"
+						}
+					}
+				}
 			}
 		],
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "Arjun"
 		},
