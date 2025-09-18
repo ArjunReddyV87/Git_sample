@@ -1,0 +1,26 @@
+{
+	"name": "DS_Control_tbl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_July2025ss2_db",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "filename",
+				"type": "varchar"
+			},
+			{
+				"name": "col_cnt",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "contrl_tbl"
+		}
+	}
+}
