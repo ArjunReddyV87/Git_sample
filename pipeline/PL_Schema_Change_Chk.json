@@ -30,6 +30,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -53,7 +54,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT col_cnt FROM contrl_tbl WHERE filename = '@{pipeline().parameters.FileName}'\n",
+							"value": "SELECT col_cnt \nFROM contrl_tbl \nWHERE filename = '@{pipeline().parameters.FileName}'\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -101,7 +102,7 @@
 							"typeProperties": {
 								"variableName": "Results",
 								"value": {
-									"value": "@concat(\r\n   pipeline().parameters.FileName,\r\n   ' earlier col cnt ',\r\n   string(activity('get_col_cnt_from_cont_tbl').output.firstRow.col_cnt),\r\n   ' New file count ',\r\n   string(activity('Get Metadata1').output.columnCount),\r\n   ' both are not matching'\r\n)\r\n",
+									"value": "@concat(\n   pipeline().parameters.FileName,\n   ' earlier col cnt ',\n   string(activity('get_col_cnt_from_cont_tbl').output.firstRow.col_cnt),\n   ' New file count ',\n   string(activity('Get Metadata1').output.columnCount),\n   ' both are not matching'\n)\n",
 									"type": "Expression"
 								}
 							}
