@@ -94,7 +94,7 @@
 				}
 			},
 			{
-				"name": "Delete1",
+				"name": "Purging files-folders older than 10",
 				"type": "Delete",
 				"dependsOn": [
 					{
@@ -114,10 +114,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "DS_Archive_Files",
+						"referenceName": "DS_Purge_Files",
 						"type": "DatasetReference"
 					},
-					"enableLogging": true,
+					"enableLogging": false,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"recursive": true,

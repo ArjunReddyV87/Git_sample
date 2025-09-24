@@ -1,26 +1,21 @@
 {
-	"name": "DS_Input_Files",
+	"name": "DS_Purge_Files",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "akeadejulstor_dl_ls",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "DelimitedText",
+		"type": "Binary",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@formatDateTime(addDays(utcNow(),0), 'yyyyMMdd')",
+					"value": "@formatDateTime(addDays(utcNow(), -10), 'yyyyMMdd')",
 					"type": "Expression"
 				},
-				"fileSystem": "input"
-			},
-			"columnDelimiter": ",",
-			"escapeChar": "\\",
-			"firstRowAsHeader": true,
-			"quoteChar": "\""
-		},
-		"schema": []
+				"fileSystem": "archive"
+			}
+		}
 	}
 }
