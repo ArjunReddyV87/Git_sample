@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "copy input to archive",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -62,11 +62,11 @@
 				]
 			},
 			{
-				"name": "Delete1",
+				"name": "delete daily input",
 				"type": "Delete",
 				"dependsOn": [
 					{
-						"activity": "Copy data1",
+						"activity": "copy input to archive",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -86,6 +86,38 @@
 						"type": "DatasetReference"
 					},
 					"enableLogging": false,
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					}
+				}
+			},
+			{
+				"name": "Delete1",
+				"type": "Delete",
+				"dependsOn": [
+					{
+						"activity": "delete daily input",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DS_Archive_Files",
+						"type": "DatasetReference"
+					},
+					"enableLogging": true,
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"recursive": true,

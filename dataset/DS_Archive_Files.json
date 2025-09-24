@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"folderPath": {
-					"value": "@formatDateTime(addDays(utcNow(), -1), 'yyyyMMdd')",
+					"value": "@formatDateTime(addDays(utcNow(), -10), 'yyyyMMdd')",
 					"type": "Expression"
 				},
 				"fileSystem": "archive"
