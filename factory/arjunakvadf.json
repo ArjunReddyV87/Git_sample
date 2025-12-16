@@ -1,0 +1,9 @@
+{
+	"name": "arjunakvadf",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bfc0246b-5fc4-41d5-bca8-6d9ee0a97620",
+		"tenantId": "c197c9b0-1747-411e-85d4-6c58d0eed952"
+	}
+}
